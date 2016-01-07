@@ -5,7 +5,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="zshrc vim config Xresorces"
+files="zshrc vim i3 Xresorces"
 
 # back up old dotfiles
 echo "Backing up old dot files in $olddir"
