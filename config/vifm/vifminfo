@@ -1,0 +1,78 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Bookmarks:
+'H
+	/home/danielrb/
+	..
+1451841366
+'b
+	/home/danielrb/bin/
+	..
+1451841366
+'h
+	/home/danielrb/
+	..
+1451841366
+'z
+	/home/danielrb/.config/vifm
+	..
+1451841366
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/danielrb
+	Desktop
+2
+d/home/danielrb/Desktop
+	..
+0
+d/home/danielrb
+	Downloads
+3
+d/home/danielrb/Downloads
+	matlab
+3
+d/home/danielrb
+	..
+0
+d
+
+# Right window history (oldest to newest):
+D/home/danielrb
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
