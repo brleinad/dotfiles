@@ -6,6 +6,7 @@
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,8 +88,9 @@ alias clc="clear ; ls"
 alias clcl="clear ; ls -lh"
 alias clcla="clear ; ls -lah"
 alias audio="pavucontrol &"
-alias vimrc="vim ~/.vim/vimrc"
-alias i3config="vim ~/.config/i3/config"
+alias vimrc="vim ~/dotfiles/vim/vimrc"
+alias i3config="vim ~/dotfiles/i3/config"
+#alias sarita="vlc && mv $1 watc"
 alias pzip="zip -re" # encrypt with password and zip recursevrly
 
 
