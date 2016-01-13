@@ -64,14 +64,14 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
+ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ else
+   export EDITOR='gvim'
+ fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+ export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -92,6 +92,7 @@ alias vimrc="vim ~/dotfiles/vim/vimrc"
 alias i3config="vim ~/dotfiles/i3/config"
 #alias sarita="vlc && mv $1 watc"
 alias pzip="zip -re" # encrypt with password and zip recursevrly
+alias reddit="rtv"
 
 
 #Vim-like shell interface
