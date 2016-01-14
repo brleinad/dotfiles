@@ -233,6 +233,11 @@ bindsym F11 exec xbacklight -inc 10
 #lock screen with black background
 bindsym $mod+Shift+x exec i3lock -c 000000
 
+# output VGA display
+bindsym F7 exec ~/.screenlayout/vga_up.sh
+# output normal laptop display
+bindsym F8 exec ~/.screenlayout/laptop.sh
+
 #locking screen ... so far it doens't work
 set $Locker i3lock -c 000000 && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
