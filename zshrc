@@ -93,6 +93,8 @@ alias i3config="vim ~/dotfiles/i3/config"
 #alias sarita="vlc && mv $1 watc"
 alias pzip="zip -re" # encrypt with password and zip recursevrly
 alias reddit="rtv"
+alias tesi="cd ~/Dropbox/tesi/$1"
+alias ld="cd ~/Dropbox/tesi/ldpc/hw"
 
 
 #Vim-like shell interface

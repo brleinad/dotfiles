@@ -1,0 +1,8 @@
+[user]
+	name = brleinad
+	mail = daniel.rodas.bautista@gmail.com
+	email = daniel.rodas.bautista@gmail.com
+[credential]
+	helper = cache --timeout=86400
+[core]
+	excludesfile = .gitignore

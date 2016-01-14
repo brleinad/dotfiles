@@ -5,23 +5,20 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="zshrc vim i3 Xresources xinitrc screenlayout"
+files="zshrc vim i3 Xresources xinitrc screenlayout gitconfig gitignore"
 
 # back up old dotfiles
-echo "Backing up old dot files in $olddir"
-mkdir -p $olddir
-echo "... done"
+#mkdir -p $olddir
 
 # change to dotfiles dir
 echo "Changing to $dir directory"
 cd $dir
-echo "... done"
 
 # the nitty gritty
 for file in $files; do
-        echo "Moving any existing dotfiles from home to $olddir
-        "
-        mv ~/.$file $olddir/ 
+        #echo "Moving any existing dotfiles from home to $olddir"
+        #mv ~/.$file $olddir/ 
+
         echo "Creating symlinks to $file in home"
         ln -s $dir/$file ~/.$file
 done
