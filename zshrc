@@ -114,8 +114,8 @@ set -o vi
 #make caplocks ESC
 #cap2esc
 
-#show nice info
-screenfetch
+#show nice info and truncate
+screenfetch -t 
 
 #Chuck Norris words of wisdom
 chuck_cow
