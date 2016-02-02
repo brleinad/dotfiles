@@ -93,8 +93,10 @@ alias i3config="vim ~/dotfiles/i3/config"
 #alias sarita="vlc && mv $1 watc"
 alias pzip="zip -re" # encrypt with password and zip recursevrly
 alias reddit="rtv"
-alias tesi="cd ~/Dropbox/tesi/$1"
-alias ld="cd ~/Dropbox/tesi/ldpc/hw"
+alias tesi="clear; cd ~/Dropbox/tesi/; pwd; ls"
+alias ldpc="cd ~/Dropbox/tesi/ldpc/hw"
+alias qrs="clear; cd ~/Dropbox/EE6103; pwd; ls"
+alias heart="clear; cd ~/Dropbox/EE6103/heart_rate_monitor/; pwd; ls"
 
 
 #Vim-like shell interface
@@ -105,20 +107,38 @@ set -o vi
         export PATH=/home/danielrb/bin:$PATH
  fi
 
- if [ -d $$PWD ]; then
-        export PATH=$PWD:$PATH
+#add Xilinx path
+ if [ -d $~./bin ]; then
+        export PATH=/home/Xilinx/Vivado/2015.4/bin:$PATH
  fi
 
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/gtk-2.0/modules/
 
 #make caplocks ESC
 #cap2esc
 
 #show nice info and truncate
-screenfetch -t 
+#screenfetch -t 
 
 #Chuck Norris words of wisdom
-chuck_cow
+#chuck_cow
 
 
+############## Cppsim Configuration (General) ##############
 
+### Setting MATLAB_SHELL as below fixes some issues when running
+### Cppsim within Matlab
+export MATLAB_SHELL=/bin/sh
+
+### Used by Cppsim and CppsimView binaries and Cppsim Cadence GUI
+export CPPSIMHOME=$HOME/CppSim
+
+### Used within included $CPPSIM/cds/cds.lib and $CPPSIM/cds/.cdsinit files
+### Also used by PLL Design Assistant
+export CPPSIMSHAREDHOME=$HOME/CppSim/CppSimShared
+
+### EDITOR is required to create or modify files from Sue2
+#export EDITOR=/usr/bin/emacs
+
+export PATH=$PATH:$CPPSIMSHAREDHOME/bin
+
+export WINEARCH=win32

@@ -5,7 +5,8 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="zshrc vim i3 Xresources xinitrc screenlayout gitconfig gitignore"
+#files="zshrc vim i3 Xresources xinitrc screenlayout gitconfig gitignore"
+files="zshrc vim Xresources xinitrc gitconfig gitignore"
 
 # back up old dotfiles
 #mkdir -p $olddir
