@@ -229,8 +229,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle  && pkill -RTMIN+1 i3blo
 bindsym Print exec scrot -e 'mv $f ~/Pictures/shots/'
 
 #backlight for when not working
-bindsym F10 exec xbacklight -dec 10 
-bindsym F11 exec xbacklight -inc 10 
+bindsym F10 exec xbacklight -dec 5 
+bindsym F11 exec xbacklight -inc 5 
 
 #lock screen with black background
 bindsym $mod+Shift+x exec i3lock -c 000000

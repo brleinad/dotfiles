@@ -97,6 +97,9 @@ alias tesi="clear; cd ~/Dropbox/tesi/; pwd; ls"
 alias ldpc="cd ~/Dropbox/tesi/ldpc/hw"
 alias qrs="clear; cd ~/Dropbox/EE6103; pwd; ls"
 alias heart="clear; cd ~/Dropbox/EE6103/heart_rate_monitor/; pwd; ls"
+alias ewb="clear; cd ~/gdrive/WTINE/; pwd; ls; drive pull"
+alias t="clear; echo "ToDo"; todo"
+alias tt="clear; echo "ToDo-Tesi"; todo -c tesi"
 
 
 #Vim-like shell interface
@@ -142,3 +145,6 @@ export CPPSIMSHAREDHOME=$HOME/CppSim/CppSimShared
 export PATH=$PATH:$CPPSIMSHAREDHOME/bin
 
 export WINEARCH=win32
+
+echo "TO-DO list"
+todo
