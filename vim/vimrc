@@ -3,6 +3,7 @@ syntax enable " enable syntax processing
 filetype on " filetype detection disabled to allow vundle to work 
 filetype indent on
 
+set t_vb= "set NO beeps nor flashes 
 " set tw=99 " set text width to 79 characters
 set expandtab " tabs are now spaces!!
 set tabstop=4 " number of visual spaces per TAB
@@ -10,9 +11,9 @@ set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " indentation space
 set background=dark  
 colorscheme solarized  "sets the solarized color scheme available in ~(.vim/colors/
-" set spell spelllang=en_us " enables spelling check in english
-set nospell
-set history=1000 " default is very low
+set spell spelllang=en_us " enables spelling check in english
+" set nospell
+"set history=1000 " default is very low
 set number " shows line numbers
 set showcmd " shows command in bottom bat altho useless if poweline plugin is used 
 set cursorline " highlights current line 
@@ -35,6 +36,8 @@ set clipboard=autoselect,unnamed
 nnoremap j gj
 nnoremap k gk
 map <F1> :make
+map <F2> :NERDTree
+
 
 "set separate location for swap and 
 set backupdir=~/.vim/tmp/
@@ -57,6 +60,7 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'msanders/snipmate.vim.git'
 Plugin 'jiangmiao/auto-pairs.git'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-perl/vim-perl'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'vim-latex/vim-latex'

@@ -229,56 +229,37 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle  && pkill -RTMIN+1 i3blo
 bindsym Print exec scrot -e 'mv $f ~/Pictures/shots/'
 
 #backlight for when not working
-bindsym F10 exec xbacklight -dec 5 
-bindsym F11 exec xbacklight -inc 5 
+bindsym F9 exec xbacklight -dec 5 
+bindsym F10 exec xbacklight -inc 5 
 
 #lock screen with black background
-bindsym $mod+Shift+x exec i3lock -c 000000
+#bindsym $mod+Shift+x exec i3lock -e -f -c 000000
+#lock screen with image background
+bindsym $mod+Shift+x exec i3lock -e -f -i ~/Pictures/arch_wallpaper_black.png  -t
 
 # output VGA display
 bindsym F7 exec ~/.screenlayout/vga_up.sh
 # output normal laptop display
 bindsym F8 exec ~/.screenlayout/laptop.sh
 
-#locking screen ... so far it doens't work
-#  set $Locker i3lock -c 000000 && sleep 1
-#  set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-#  mode "$mode_system" {
-#      bindsym l exec --no-startup-id $Locker, mode "default"
-#      bindsym e exec --no-startup-id i3-msg exit, mode "default"
-#      bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-#      bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-#      bindsym r exec --no-startup-id systemctl reboot, mode "default"
-#      bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-#  
-#      # back to normal: Enter or Escape
-#      bindsym Return mode "default"
-#      bindsym Escape mode "default"
-#  }
-#  
-#  bindsym $mod+Pause mode "$mode_system"
-
 #start a terminal
 #exec terminator
 exec i3-sensible-terminal
 #exec_always terminator #everytime i3 restarts
-
 exec_always feh --bg-scale /home/danielrb/Pictures/arch_wallpaper_black.png
-
 #compton for fading and transparency
 exec_always compton -f
-
 #start notifications
 exec dunst
-
 #start nm-applet for internet
 exec_always NetworkManager
 exec nm-applet
-
 #make caplocks ESC
 exec_always cap2esc
-
 #start dropbox
 exec dropbox
+#open firefox
+exec firefox 
+
  
 

@@ -1,4 +1,6 @@
 ! urxvt
+URxvt*insecure: true
+URxvt*visualBell: false
 URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*underlineColor: yellow

@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/danielrb/.oh-my-zsh
 
+xset -b
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -64,11 +65,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
+ #if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
- else
-   export EDITOR='gvim'
- fi
+ #else
+   #export EDITOR='gvim'
+ #fi
 
 # Compilation flags
  export ARCHFLAGS="-arch x86_64"
@@ -82,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias clc="clear ; ls"
 alias clcl="clear ; ls -lh"
@@ -90,16 +91,23 @@ alias clcla="clear ; ls -lah"
 alias audio="pavucontrol &"
 alias vimrc="vim ~/dotfiles/vim/vimrc"
 alias i3config="vim ~/dotfiles/i3/config"
-#alias sarita="vlc && mv $1 watc"
 alias pzip="zip -re" # encrypt with password and zip recursevrly
 alias reddit="rtv"
-alias tesi="clear; cd ~/Dropbox/tesi/; pwd; ls"
+alias tesi="clear; cd ~/Dropbox/tesi/; pwd; ls; echo "ToDo"; todo -c tesi"
+alias te="clear; cd ~/Dropbox/tesi/; pwd; ls; echo "ToDo"; todo -c tesi"
 alias ldpc="cd ~/Dropbox/tesi/ldpc/hw"
-alias qrs="clear; cd ~/Dropbox/EE6103; pwd; ls"
-alias heart="clear; cd ~/Dropbox/EE6103/heart_rate_monitor/; pwd; ls"
+alias qrs="clear; cd ~/Dropbox/EE6103/heart_rate_monitor/; pwd; ls; todo -c qrs"
 alias ewb="clear; cd ~/gdrive/WTINE/; pwd; ls; drive pull"
 alias t="clear; echo "ToDo"; todo"
 alias tt="clear; echo "ToDo-Tesi"; todo -c tesi"
+alias matmat="matlab -nojvm -nodisplay -nosplash"
+alias toto="clear; echo "todo"; todo"
+alias spotify="blockify & spotify --force-device-scale-factor=1.0000001 &"
+alias r="ranger"
+alias sd="echo "shuttingdown"; sudo shutdown -h now"
+alias rb="echo "Rebooting!"; sudo reboot -h now"
+alias rmvimswp="rm ~/.vim/tmp/*.swp"
+alias ucc="ssh -X -C danielrb@www.ue.ucc.ie"
 
 
 #Vim-like shell interface
@@ -111,11 +119,12 @@ set -o vi
  fi
 
 #add Xilinx path
- if [ -d $~./bin ]; then
-        export PATH=/home/Xilinx/Vivado/2015.4/bin:$PATH
+export VIVADO=/home/Xilinx/Vivado/2015.4/
+ if [ -d $VIVADO/bin ]; then
+        export PATH=$PATH:$VIVADO/bin #:$PATH
  fi
 
-
+set bell-style none
 #make caplocks ESC
 #cap2esc
 
@@ -125,7 +134,6 @@ set -o vi
 #Chuck Norris words of wisdom
 #chuck_cow
 
-
 ############## Cppsim Configuration (General) ##############
 
 ### Setting MATLAB_SHELL as below fixes some issues when running
@@ -134,17 +142,14 @@ export MATLAB_SHELL=/bin/sh
 
 ### Used by Cppsim and CppsimView binaries and Cppsim Cadence GUI
 export CPPSIMHOME=$HOME/CppSim
-
 ### Used within included $CPPSIM/cds/cds.lib and $CPPSIM/cds/.cdsinit files
 ### Also used by PLL Design Assistant
 export CPPSIMSHAREDHOME=$HOME/CppSim/CppSimShared
-
-### EDITOR is required to create or modify files from Sue2
-#export EDITOR=/usr/bin/emacs
-
 export PATH=$PATH:$CPPSIMSHAREDHOME/bin
 
 export WINEARCH=win32
 
 echo "TO-DO list"
 todo
+
+export RANGER_LOAD_DEFAULT_RF=FALSE
