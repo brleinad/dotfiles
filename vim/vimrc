@@ -1,67 +1,40 @@
-
 set nocompatible " be iMproved, required
 syntax enable " enable syntax processing 
-filetype off " filetype detection disabled to allow vundle to work 
-
+filetype on " filetype detection disabled to allow vundle to work 
 filetype indent on
 
-
-
 " set tw=99 " set text width to 79 characters
-
+set expandtab " tabs are now spaces!!
+set tabstop=4 " number of visual spaces per TAB
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4 " indentation space
 set background=dark  
 colorscheme solarized  "sets the solarized color scheme available in ~(.vim/colors/
-
 " set spell spelllang=en_us " enables spelling check in english
 set nospell
-
 set history=1000 " default is very low
-
-set tabstop=2 " number of visual spaces per TAB
-
-set softtabstop=2 " number of spaces in tab when editing
-
-set expandtab " tabs are now spaces!!
-
 set number " shows line numbers
-
 set showcmd " shows command in bottom bat altho useless if poweline plugin is used 
-
 set cursorline " highlights current line 
-
-filetype indent on " turns on filetype detection to load specific indent these are available in ~/.vim/indent/
-
 set wildmenu " visual autocomplete for command menu
-
 set showmatch " higlights matching parenthesis 
-
 set incsearch " searches as characters are entered
-
 set hlsearch " highlights matches
-
 set ignorecase
 set smartcase "search case-sensitive smart
-
 set encoding=utf-8
-
 set sidescroll=10 sidescrolloff=10
 set scrolloff=4
-
 " Dispplay line number relative to the current line
 set relativenumber
 set number 
-
 set undofile "persistant undo even if I quit vim
-
 " when yanking automatically put text in clipboard
 set clipboard=autoselect,unnamed
-
 " make j and k go through wrapped lines
 nnoremap j gj
 nnoremap k gk
-
 map <F1> :make
-
 
 "set separate location for swap and 
 set backupdir=~/.vim/tmp/
