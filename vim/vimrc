@@ -1,89 +1,205 @@
-set nocompatible " be iMproved, required
-syntax enable " enable syntax processing 
-filetype on " filetype detection disabled to allow vundle to work 
-filetype indent on
-
-set t_vb= "set NO beeps nor flashes 
-" set tw=99 " set text width to 79 characters
-set expandtab " tabs are now spaces!!
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
-set shiftwidth=4 " indentation space
-set background=dark  
-colorscheme solarized  "sets the solarized color scheme available in ~(.vim/colors/
-set spell spelllang=en_us " enables spelling check in english
-" set nospell
-"set history=1000 " default is very low
-set number " shows line numbers
-set showcmd " shows command in bottom bat altho useless if poweline plugin is used 
-set cursorline " highlights current line 
-set wildmenu " visual autocomplete for command menu
-set showmatch " higlights matching parenthesis 
-set incsearch " searches as characters are entered
-set hlsearch " highlights matches
-set ignorecase
-set smartcase "search case-sensitive smart
-set encoding=utf-8
-set sidescroll=10 sidescrolloff=10
-set scrolloff=4
-" Dispplay line number relative to the current line
+" modern vim
+set nocompatible 
+" --------------------
+" LOOKS ---------------
+"set background=light
+" sets the solarized color theme for vim
+" it is very good on your eyes
+colorscheme solarized
+" a dark background makes it even better for long sessions
+set background=dark
+" adds a title to the vim window with the name of the open file 
+set title
+"shows the line numbers on the left
+ set number
+" shows the numbers relative to the current line
+" "very useful when using vim commands
 set relativenumber
-set number 
-set undofile "persistant undo even if I quit vim
-" when yanking automatically put text in clipboard
-set clipboard=autoselect,unnamed
-" make j and k go through wrapped lines
-nnoremap j gj
-nnoremap k gk
-map <F1> :make
-map <F2> :NERDTree
+" highlight the current row
+set cursorline
+" highlight the current column
+set cursorcolumn
+" min number of lines to keep around the current line
+" i.e. gives context when moving around
+set scrolloff=3
+" show what vim mode you're in
+set showmode
+" show last command in last line
+set showcmd
+set hidden 
+" show useful info at the bottom
+set ruler 
+" show options when writing a command
+set wildmenu
+" show matching parenthesis
+set showmatch
+"turns off annoying sounds
+set noerrorbells
+
+" ---------------------------
+" SEARCHING SUBSTITUTING AND HIGHLIGHTING 
+"Lookahead as search pattern is specified
+set incsearch  
+"Ignore case in all searches...
+set ignorecase 
+"unless uppercase letters used
+set smartcase  
+"Highlight all matches
+set hlsearch   
+"  gets rid of awkward regex in vim
+nnoremap / /\v
+vnoremap / /\v
+"applies substitutions globally
+"set gdefault 
+"
+"highlight clear Search
+"highlight Search ctermfg=White
+
+"-----------------------------
+" INDENTATION
+"Retain indentation on next line
+set autoindent 
+"Turn on autoindenting of blocks
+set smartindent 
+" Use spaces when using tabs in insert mode
+set expandtab
+" default value, don't change to avoid issues
+set tabstop=8
+"Set the tab space to 3 
+"tabs when editing 
+set softtabstop=3
+"also when using '<' and '>' 
+set shiftwidth=3
+" indent based on the syntax
+filetype indent on
+" -----------------------
+" FILETYPE OPTIONS
+" turn on syntax coloring
+syntax enable
+" recognize the file type when a file is opened
+filetype on
+" use the plugins in ~/.vim/ftplugin
+filetype plugin on 
+" turn off spell checking
+set nospell
 
 
-"set separate location for swap and 
+" sane moving
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" -----------------
+"  MAPPINGS
+" F1 is help by default
+" press F1 to compile
+nnoremap <F1> :make
+" fix common mistakes
+map :W :w
+map :Q :q
+" useful for quick debugging of verilog files
+map <F2> :!vlog %
+" use tab for moving between parenthesis 
+nnoremap <tab> %
+vnoremap <tab> %
+" easier moving in a line
+" nnoremap j gj 
+" nnoremap k gk
+" ; is easier to hit than :
+nnoremap ; :
+" move tab to the next tab to the left
+nnoremap <silent> <leader><space>h :execute 'silent! tabmove ' . (tabpagenr()-2)<cr>
+" move tab to the right
+nnoremap <silent> <leader><space>l :execute 'silent! tabmove ' . (tabpagenr()+1)<cr>
+
+" LEADER  key mappings
+" let mapleader = ","
+nnoremap <leader>nh : noh<cr>
+" nnoremap <leader><space> gt
+nnoremap <leader><tab> gt
+nnoremap <leader><space><tab> gT
+"selects pasted text
+nnoremap <leader>v V`] 
+"nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>ev :tabf $MYVIMRC<cr>
+" open new vertial split and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
+" open new tab with current directory
+" nnoremap <leader>et :tabf ./ <cr>
+" open current directory
+nnoremap <leader>n :Explore <cr>
+" open new tab 
+nnoremap <leader>t :tabf 
+" change background to light
+nnoremap <leader><space>d :set bg=light<cr>
+" change background to dark
+nnoremap <leader>d :set bg=dark<cr>
+" grep for error
+nnoremap <leader>e /error<cr>
+" grep for uvm_error
+nnoremap <leader>u /uvm_error<cr>
+" go to next tab
+nnoremap <leader>l :tabn<cr>
+" go to previous tab
+nnoremap <leader>h :tabp<cr>
+" show current open tabs
+nnoremap <leader>s :tabs<cr>
+
+" open file under cursor in different tab
+nnoremap <leader>o <C-w>gf<cr>
+
+" get rid of numbers
+nnoremap <leader>nn :set nonumber<cr> :set norelativenumber<cr>
+" put back numbers
+nnoremap <leader>sn :set number<cr> :set relativenumber<cr>
+
+
+"source vimrc when closed
+autocmd bufwritepost vimrc source $MYVIMRC
+
+"auto reload files when changed outside of vim
+set autoread
+
+" --------------------
+"  OTHER
+"  Saves .swp and other vim temp files in given directory 
 set backupdir=~/.vim/tmp/
 set directory=~/.vim/tmp/
+" fixing the backspace and setting the colors right for gnome terminal
+if (&term == "gnome-terminal" || &term == "xterm" || &term == "screen" || &term == "screen-256color" || &term == "xterm-256color")
+   set t_kb=
+   " set t_Co=16
+   set t_Co=256
+endif
+set backspace=indent,eol,start
+" set a sane encoding 
+set encoding=utf-8
 
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" nmap <leader>n : noh<CR>
+"nmap <leader>a : set mouse=a<CR>
+" nmap <leader>t : set number!<CR>
+""search for visually selected text.
+vnoremap // y/<C-R>"<CR> 
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'xolox/vim-easytags'
-"Plugin 'xolox/vim-misc'
-Plugin 'scrooloose/nerdtree.git'
-"Plugin 'tomtom/tcomment_vim'
-Plugin 'msanders/snipmate.vim.git'
-Plugin 'jiangmiao/auto-pairs.git'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-perl/vim-perl'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'scrooloose/nerdcommenter'
-"Plugin 'vim-latex/vim-latex'
-Plugin 'ervandew/supertab'
-"
-"" The following are examples of different formats supported.
-"" Keep Plugin commands between vundle#begin/end.
-"" plugin on GitHub repo
-"        " Plugin 'tpope/vim-fugitive'
-"" plugin from http://vim-scripts.org/vim/scripts.html
-"        " Plugin 'git://git.wincent.com/command-t.git'
-"
-"" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"" To ignore plugin indent changes, instead use:
-""filetype plugin on
-""
-"" Brief help
-"" :PluginList       - lists configured plugins
-"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-""
-"" see :h vundle for more details or wiki for FAQ
-"" Put your non-Plugin stuff after this line
+" ******************************************************************************
+" ** Autocommand Function to allow a .gz file to be opened/viewed or edited   **
+" **       without the need for the file to be extracted **
+" **         first with a separate command               **
+" ******************************************************************************
+augroup gzip
+   autocmd!
+   autocmd BufReadPre,FileReadPre *.gz set bin
+   autocmd BufReadPost,FileReadPost   *.gz '[,']!gunzip
+   autocmd BufReadPost,FileReadPost   *.gz set nobin
+   autocmd BufReadPost,FileReadPost   *.gz execute ":doautocmd BufReadPost " . expand("%:r")
+   autocmd BufWritePost,FileWritePost *.gz !mv <afile> <afile>:r
+   autocmd BufWritePost,FileWritePost *.gz !gzip <afile>:r
+   autocmd FileAppendPre      *.gz !gunzip <afile>
+   autocmd FileAppendPre      *.gz !mv <afile>:r <afile>
+   autocmd FileAppendPost     *.gz !mv <afile> <afile>:r
+   autocmd FileAppendPost     *.gz !gzip <afile>:r
+augroup END
+
+" autocmd bufreadpost,filereadpost *.sv execute ":norm gg=G"
